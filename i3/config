@@ -199,6 +199,6 @@ bar {
 }
 
 # set wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/image-manipulation-hut-lake-water.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/mountain.jpeg
 # set monitor layout
 exec --no-startup-id ~/.screenlayout/dualmonitor.sh
