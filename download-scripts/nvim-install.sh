@@ -6,4 +6,4 @@ trap "rm -rf ${TMP_DIR}" EXIT
 
 wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
 tar xzf nvim-linux64.tar.gz
-sudo mv ./nvim-linux64/bin/nvim /usr/bin/nvim
+sudo cp -r ./nvim-linux64/* /usr/

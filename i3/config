@@ -199,10 +199,10 @@ bar {
 }
 
 # set wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/mountain.jpeg
+exec --no-startup-id feh --bg-fill ~/.config/dotfiles/i3/wallpapers/ubuntu-brand.jpg
 # set monitor layout
-exec --no-startup-id ~/.screenlayout/dualmonitor.sh
+# exec --no-startup-id ~/.screenlayout/dualmonitor.sh
 # lock screen
-bindsym Mod1+Ctrl+0 exec ~/.config/i3lock/i3lock.sh
+bindsym Mod1+Ctrl+0 exec ~/.config/dotfiles/i3lock/i3lock.sh
 # set key repetation faster
 exec --no-startup-id "xset r rate 200 35"
