@@ -48,7 +48,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -206,3 +206,4 @@ exec --no-startup-id feh --bg-fill ~/.config/dotfiles/i3/wallpapers/ubuntu-brand
 bindsym Mod1+Ctrl+0 exec ~/.config/dotfiles/i3lock/i3lock.sh
 # set key repetation faster
 exec --no-startup-id "xset r rate 200 35"
+exec --no-startup-id "xinput --set-prop 'SYNA8018:00 06CB:CE67 Touchpad' 'Device Enabled' 0"
