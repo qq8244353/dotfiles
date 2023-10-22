@@ -204,6 +204,8 @@ exec --no-startup-id feh --bg-fill ~/.config/dotfiles/i3/wallpapers/ubuntu-brand
 # exec --no-startup-id ~/.screenlayout/dualmonitor.sh
 # lock screen
 bindsym Mod1+Ctrl+0 exec ~/.config/dotfiles/i3lock/i3lock.sh
+exec --no-startup-id xss-lock -- ~/.config/dotfiles/i3lock/i3lock.sh
+
 # set key repetation faster
 exec --no-startup-id "xset r rate 200 35"
 exec --no-startup-id "xinput --set-prop 'SYNA8018:00 06CB:CE67 Touchpad' 'Device Enabled' 0"
