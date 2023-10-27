@@ -4,4 +4,5 @@ TMP_DIR=$(mktemp -d)
 # cd ${TMP_DIR}
 trap "rm -rf ${TMP_DIR}" EXIT
 
-sudo apt install i3 feh polybar -y
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
