@@ -209,7 +209,7 @@ exec --no-startup-id feh --bg-fill ~/.config/dotfiles/i3/wallpapers/ubuntu-brand
 
 # lock screen
 # set desktop background with custom effect
-exec --no-startup-id betterlockscreen -w dim
+exec --no-startup-id betterlockscreen  -u ~/.config/dotfiles/i3/wallpapers/forest-4k.jpg
 
 # keybinding
 bindsym $mod+Ctrl+0 exec betterlockscreen -l dim
