@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
 # global settings
 yabai -m config mouse_follows_focus          on
 yabai -m config focus_follows_mouse          autoraise
@@ -27,16 +30,11 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  6
+yabai -m config top_padding                  30
 yabai -m config bottom_padding               6
 yabai -m config left_padding                 6
 yabai -m config right_padding                6
 yabai -m config window_gap                   2
-# yabai -m config top_padding                  12
-# yabai -m config bottom_padding               12
-# yabai -m config left_padding                 12
-# yabai -m config right_padding                12
-# yabai -m config window_gap                   06
 
 # rules
 # from https://github.com/JunichiSugiura/dotfiles/blob/main/packages/wm/.config/yabai/yabairc
@@ -46,10 +44,13 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Karabiner-MultitouchExtension$" manage=off
 
+# # signals
+## updates workspace widget when space changes
+yabai -m signal --add event=space_changed \
+  action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"pecan-workspace-jsx\"'"
 
+echo "yabai configuration loaded.."
 
-# sudo yabai --load-sa
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # global settings
 # yabai -m config external_bar                 all:24:0
@@ -69,23 +70,10 @@ yabai -m rule --add app="^Karabiner-MultitouchExtension$" manage=off
 # yabai -m config mouse_action1                move
 # yabai -m config mouse_action2                resize
 #
-# # general space settings
-# yabai -m config layout                       bsp
-# yabai -m config top_padding                  12
-# yabai -m config bottom_padding               12
-# yabai -m config left_padding                 12
-# yabai -m config right_padding                12 
-# yabai -m config window_gap                   06
-#
 # # rules
 # ## makes system preferences always floating
 # yabai -m rule --add app="^System Preferences$" manage=off
 # yabai -m rule --add app="^Wally$" manage=off
 # yabai -m rule --add app="^Pulse Secure$" manage=off
 #
-# # signals
-# ## updates workspace widget when space changes
-# yabai -m signal --add event=space_changed \
-#   action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"pecan-workspace-jsx\"'"
 #
-# echo "yabai configuration loaded.."

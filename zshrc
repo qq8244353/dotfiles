@@ -1,10 +1,12 @@
+alias ls='ls -G'
+# Kyopro
 function sss() (
   rm -f log.txt tmp.cpp bundle.cpp submit.cpp
   cat main.cpp | grep '#include' > bundle.cpp
   echo '#ifdef INCLUDED_MAIN' > submit.cpp
   cat main.cpp | grep -v '#include' >> submit.cpp
   echo '\n#else' >> submit.cpp
-  oj-bundle bundle.cpp -I ~/projects/competitive/library 2>log.txt > tmp.cpp
+  oj-bundle bundle.cpp -I ~/Kyopro/library 2>log.txt > tmp.cpp
   if [ ! $? -eq 0 ]; then
     echo "bundle error"
     cat log.txt | grep DEBUG --color=never
@@ -23,7 +25,7 @@ alias sole='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_e/"
 alias solf='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_f/")'
 alias solg='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_g/")'
 alias solh='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_h/")'
-alias g="/usr/bin/g++ -std=c++20 main.cpp -I ~/projects/competitive/library"
+alias g="/usr/bin/g++ -std=c++20 main.cpp -I ~/Kyopro/library -I ~/Kyopro/library/include"
 alias p="pbcopy < main.cpp"
-alias m='(){oj-prepare https://atcoder.jp/contests/$1; cd ~/projects/competitive/atcoder.jp/$1}'
+alias m='(){oj-prepare --config-file ~/.config/dotfiles/prepare.config.toml https://atcoder.jp/contests/$1; cd ~/Kyopro/atcoder.jp/$1}'
 alias tt='latexmk -pdfdvi -pvc'
