@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 set -eux
 TMP_DIR=$(mktemp -d)
-cd ${TMP_DIR}
+# cd ${TMP_DIR}
 trap "rm -rf ${TMP_DIR}" EXIT
 
-sudo apt install jq -y
+# sudo apt-get update
+# sudo apt-get upgrade -y
+# sudo apt update
+# sudo apt upgrade -y
+wget https://github.com/haikarainen/light/archive/refs/tags/v1.2.2.zip
+unzip v1.2.2.zip
 exit
 # ------------- already installed ------------- 
 sudo apt install imagemagick -y
@@ -31,3 +36,8 @@ echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *
 sudo apt update && sudo apt install glow
 # multipass
 sudo snap install multipass -y
+# jq
+sudo apt install jq -y
+sudo apt install python3.10-venv -y
+# card-leader
+sudo apt-get install libpcsclite-dev pcscd pcsc-tools -y
