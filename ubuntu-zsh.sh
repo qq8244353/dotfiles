@@ -7,7 +7,7 @@ cd ${TMPDIR}
 trap "rm -rf ${TMPDIR}" EXIT
 
 if false; then
-  sudo apt install zsh vim curl wget -y
+  sudo apt install vim curl wget -y
   # nerdfort 
   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip
   mkdir -p ~/.fonts
@@ -115,6 +115,8 @@ if false; then
   sudo apt install ranger -y
   ln -s ${DOTDIR}/ranger/rc.conf ~/.config/ranger/rc.conf
 fi
+echo '[[ ! -f ~/.config/dotfiles/zshrc ]] || source ~/.config/dotfiles/zshrc' >> ~/.zshrc
+source ~/.zshrc
 exit 0
 
 # wget https://github.com/haikarainen/light/archive/refs/tags/v1.2.2.zip
