@@ -36,6 +36,8 @@ exec --no-startup-id nm-applet
 
 # https://qiita.com/AstPy-ms/items/4178949bfc5bf6c5dd9e
 exec --no-startup-id fcitx
+# caps lock to ctrl 
+exec --no-startup-id setxkbmap -option ctrl:nocaps
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
