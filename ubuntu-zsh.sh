@@ -114,9 +114,13 @@ if false; then
   # ranger
   sudo apt install ranger -y
   ln -s ${DOTDIR}/ranger/rc.conf ~/.config/ranger/rc.conf
+  echo '[[ ! -f ~/.config/dotfiles/zshrc ]] || source ~/.config/dotfiles/zshrc' >> ~/.zshrc
+  source ~/.zshrc
+  sudo apt install cryptsetup
+  # rg
+  curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+  sudo dpkg -i ripgrep_13.0.0_amd64.deb
 fi
-echo '[[ ! -f ~/.config/dotfiles/zshrc ]] || source ~/.config/dotfiles/zshrc' >> ~/.zshrc
-source ~/.zshrc
 exit 0
 
 # wget https://github.com/haikarainen/light/archive/refs/tags/v1.2.2.zip
