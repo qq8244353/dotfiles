@@ -76,4 +76,13 @@ if false; then
   # gcc
   brew install gcc
   sudo ln -s /opt/homebrew/bin/g++-13 /usr/local/bin/g++
+  sudo ln -s /opt/homebrew/bin/gcc-13 /usr/local/bin/gcc
+  # tree
+  brew install tree
+  # nodebrew
+  curl -L git.io/nodebrew | perl - setup
+  echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.zshrc
+  # tex
+  brew install --cask mactex
 fi
+ln -s ~/.config/dotfiles/latexmkrc ~/.latexmkrc
