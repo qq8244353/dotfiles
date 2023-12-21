@@ -219,3 +219,4 @@ bindsym $mod+Ctrl+0 exec betterlockscreen -l dim
 # set key repetation faster
 exec --no-startup-id "xset r 22 r rate 180 30"
 exec --no-startup-id "xinput --set-prop 'SYNA8018:00 06CB:CE67 Touchpad' 'Device Enabled' 0"
+# setxkbmap -option ctrl:nocaps
