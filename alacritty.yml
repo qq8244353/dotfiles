@@ -8,8 +8,15 @@ font:
   italic:
     family: Hack Nerd Font
     style: Italic
-  size: 14
+  size: 10
   
 key_bindings:
   - { key: PageUp,    action: ScrollPageUp   }
   - { key: PageDown,  action: ScrollPageDown }
+
+shell:
+  program: /bin/zsh
+  args:
+   - -l
+   - -c
+   - 'tmux a -t default || tmux new -s default'
