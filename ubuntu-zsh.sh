@@ -76,6 +76,7 @@ if false; then
   sudo apt install fcitx-mozc -y
   # tmux
   sudo apt install tmux -y
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ln -s ${DOTDIR}/tmux.conf ~/.tmux.conf
   # glow
   sudo mkdir -p /etc/apt/keyrings
