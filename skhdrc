@@ -1,5 +1,5 @@
 # open terminal
-alt - return : open -n -a "Terminal"
+alt - return : open -n -a "Alacritty"
 
 # open chrome 
 alt + shift - return : open -n -a "Firefox" 

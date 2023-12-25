@@ -17,15 +17,16 @@ function sss() (
   oj s -y --no-open submit.cpp | grep SUCCESS
   rm -f log.txt tmp.cpp bundle.cpp submit.cpp
 )
-alias sola='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_a/")'
-alias solb='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_b/")'
-alias solc='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_c/")'
-alias sold='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_d/")'
-alias sole='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_e/")'
-alias solf='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_f/")'
-alias solg='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_g/")'
-alias solh='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9]*\).*/\1\2\/\2_h/")'
+alias sola='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_a/")'
+alias solb='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_b/")'
+alias solc='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_c/")'
+alias sold='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_d/")'
+alias sole='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_e/")'
+alias solf='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_f/")'
+alias solg='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_g/")'
+alias solh='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_h/")'
 alias g="/usr/bin/g++ -std=c++20 main.cpp -I ~/Kyopro/library -I ~/Kyopro/library/include"
 alias p="pbcopy < main.cpp"
-alias m='(){oj-prepare --config-file ~/.config/dotfiles/prepare.config.toml https://atcoder.jp/contests/$1; cd ~/Kyopro/atcoder.jp/$1}'
+alias m='(){ [ ! -d ~/Kyopro/atcoder.jp/$1 ] && oj-prepare --config-file ~/.config/dotfiles/prepare.config.toml https://atcoder.jp/contests/$1; cd ~/Kyopro/atcoder.jp/$1}'
 alias tt='latexmk -pdfdvi -pvc'
+alias a='./a.out'
