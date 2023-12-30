@@ -87,6 +87,10 @@ if false; then
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   unzip awscliv2.zip
   sudo ./aws/install
+  # aws sam
+  wget "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip"
+  unzip aws-sam-cli-linux-x86_64.zip -d sam
+  sudo ./sam/install
   # gh
   type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
@@ -139,6 +143,8 @@ if false; then
   sudo apt-get update
   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
+  # mysql client
+  sudo apt install mysql-client -y
 fi
 exit 0
 
