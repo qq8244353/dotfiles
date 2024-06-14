@@ -1,10 +1,19 @@
 alias ls='ls -G'
+alias n='nvim main.cpp'
 # Kyopro
+function c() (
+  sed -i '' 's/\(^[^\/]*cerr.*\)/\/\/ \1/' main.cpp
+)
+
+function rc() (
+  sed -i '' 's/^\/\/ //' main.cpp
+)
+
 function sss() (
   rm -f log.txt tmp.cpp bundle.cpp submit.cpp
   cat main.cpp | grep '#include' > bundle.cpp
   echo '#ifdef INCLUDED_MAIN\n' > submit.cpp
-  cat main.cpp | awk '/^int main\(\) \{$/,/^\}$/' >> submit.cpp
+  cat main.cpp | awk '/^int main\(\)/,/djkflaf/' >> submit.cpp
   echo '\n#else' >> submit.cpp
   oj-bundle bundle.cpp -I ~/Kyopro/library 2>log.txt > tmp.cpp
   if [ ! $? -eq 0 ]; then
@@ -45,7 +54,7 @@ alias sole='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_e
 alias solf='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_f/")'
 alias solg='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_g/")'
 alias solh='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_h/")'
-alias g="/usr/bin/g++ -std=c++20 main.cpp -I ~/Kyopro/library -I ~/Kyopro/library/_include"
+alias g="/usr/bin/g++ -std=c++20 main.cpp -I ~/Kyopro/library -I ~/Kyopro/library/_include -fsanitize=address -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC"
 alias p="pbcopy < main.cpp"
 alias tt='latexmk -pdfdvi -pvc'
 alias a='./a.out'

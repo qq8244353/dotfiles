@@ -2,4 +2,4 @@ contest_directory = "~/Kyopro/{service_domain}/{contest_id}/{problem_id}"
 # problem_directory = "~/Kyopro/{service_domain}/tmp/{problem_id}"
 
 [templates]
-"main.cpp" = "/Users/quack/Kyopro/library/oj-templates/main.cpp"
+"main.cpp" = "/Users/quack/Kyopro/library/_oj-templates/main.cpp"

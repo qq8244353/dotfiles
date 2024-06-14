@@ -84,5 +84,9 @@ if false; then
   echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.zshrc
   # tex
   brew install --cask mactex
+  ln -s ~/.config/dotfiles/latexmkrc ~/.latexmkrc
+  # jq, yq, dasel
+  brew install jq
+  brew install yq
+  brew install dasel
 fi
-ln -s ~/.config/dotfiles/latexmkrc ~/.latexmkrc
