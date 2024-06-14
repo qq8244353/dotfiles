@@ -1,6 +1,6 @@
-alias ls='ls -G'
+# エディタ起動
 alias n='nvim main.cpp'
-# Kyopro
+# 自動コメントアウト
 function c() (
   sed -i '' 's/\(^[^\/]*cerr.*\)/\/\/ \1/' main.cpp
 )
@@ -9,6 +9,7 @@ function rc() (
   sed -i '' 's/^\/\/ //' main.cpp
 )
 
+# 提出
 function sss() (
   rm -f log.txt tmp.cpp bundle.cpp submit.cpp
   cat main.cpp | grep '#include' > bundle.cpp
@@ -28,10 +29,7 @@ function sss() (
   rm -f log.txt tmp.cpp bundle.cpp submit.cpp
 )
 
-function haha() (
-  echo $1
-)
-
+# mainファイル内を初期化
 fuction reset_main() (
   TEMPLATE_FILES=$(cat ~/.config/dotfiles/prepare.config.toml | dasel -r toml -w json | jq -r '.templates | .[]')
   for TEMPLATE_FILE in ${TEMPLATE_FILES}
@@ -45,6 +43,7 @@ fuction reset_main() (
   done
 )
 
+# エイリアス
 alias m='(){ [ ! -d ~/Kyopro/atcoder.jp/$1 ] && oj-prepare --config-file ~/.config/dotfiles/prepare.config.toml https://atcoder.jp/contests/$1; cd ~/Kyopro/atcoder.jp/$1; reset_main ~/Kyopro/atcoder.jp/$1}'
 alias sola='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_a/")'
 alias solb='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_b/")'
