@@ -10,6 +10,25 @@ function rc() (
 )
 
 # 提出
+function ssss() (
+  rm -f log.txt tmp.cpp bundle.cpp submit.cpp
+  cat main.cpp | grep '#include' > bundle.cpp
+  echo '#ifdef INCLUDED_MAIN\n' > submit.cpp
+  cat main.cpp | awk '/^int main\(\)/,/djkflaf/' >> submit.cpp
+  echo '\n#else' >> submit.cpp
+  oj-bundle bundle.cpp -I ~/Kyopro/library 2>log.txt > tmp.cpp
+  if [ ! $? -eq 0 ]; then
+    echo "bundle error"
+    cat log.txt | grep DEBUG --color=never
+    exit
+  fi
+  cat tmp.cpp | sed 's/.*line.*//' >> submit.cpp 
+  python3 ~/.config/dotfiles/kyopro/extract-above-main.py main.cpp >> submit.cpp
+  echo '#define INCLUDED_MAIN\n#include __FILE__\n\n#endif' >> submit.cpp
+  rm -f log.txt tmp.cpp bundle.cpp
+)
+
+# 提出
 function sss() (
   rm -f log.txt tmp.cpp bundle.cpp submit.cpp
   cat main.cpp | grep '#include' > bundle.cpp
