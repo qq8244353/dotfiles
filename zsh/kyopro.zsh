@@ -33,7 +33,7 @@ function sss() (
   rm -f log.txt tmp.cpp bundle.cpp submit.cpp
   cat main.cpp | grep '#include' > bundle.cpp
   echo '#ifdef INCLUDED_MAIN\n' > submit.cpp
-  cat main.cpp | awk '/^int main\(\)/,/djkflaf/' >> submit.cpp
+  cat main.cpp | grep -v '#include' >> submit.cpp
   echo '\n#else' >> submit.cpp
   oj-bundle bundle.cpp -I ~/Kyopro/library 2>log.txt > tmp.cpp
   if [ ! $? -eq 0 ]; then
@@ -42,7 +42,6 @@ function sss() (
     exit
   fi
   cat tmp.cpp | sed 's/.*line.*//' >> submit.cpp 
-  python3 ~/.config/dotfiles/kyopro/extract-above-main.py main.cpp >> submit.cpp
   echo '#define INCLUDED_MAIN\n#include __FILE__\n\n#endif' >> submit.cpp
   oj s -y --no-open submit.cpp | grep SUCCESS
   rm -f log.txt tmp.cpp bundle.cpp submit.cpp
