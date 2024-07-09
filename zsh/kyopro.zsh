@@ -62,6 +62,16 @@ fuction reset_main() (
   done
 )
 
+function topdf() {
+  filein=$1
+  opt=${2:-Portrait}  # 長い行のときはLandscapeオプションが便利
+  vim ${filein} -c 'colorscheme default | set number | TOhtml | w tmp.html | qa!'
+  wkhtmltopdf --page-size B4 -O ${opt} --footer-left "[date] [time] ${filein}" \
+    --footer-right "[page]/[topage]" --no-background --margin-top 4 --margin-right 3 \
+    --margin-left 4 --margin-bottom 10 tmp.html ${filein}.pdf 
+  rm -f tmp.html
+}
+
 # エイリアス
 alias m='(){ [ ! -d ~/Kyopro/atcoder.jp/$1 ] && oj-prepare --config-file ~/.config/dotfiles/oj/prepare.config.toml https://atcoder.jp/contests/$1; cd ~/Kyopro/atcoder.jp/$1; reset_main ~/Kyopro/atcoder.jp/$1}'
 alias sola='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_a/")'
