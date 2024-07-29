@@ -13,9 +13,6 @@ function rc() (
 function ssss() (
   rm -f log.txt tmp.cpp bundle.cpp submit.cpp
   cat main.cpp | grep '#include' > bundle.cpp
-  echo '#ifdef INCLUDED_MAIN\n' > submit.cpp
-  cat main.cpp | awk '/^int main\(\)/,/djkflaf/' >> submit.cpp
-  echo '\n#else' >> submit.cpp
   oj-bundle bundle.cpp -I ~/Kyopro/library 2>log.txt > tmp.cpp
   if [ ! $? -eq 0 ]; then
     echo "bundle error"
@@ -23,9 +20,10 @@ function ssss() (
     exit
   fi
   cat tmp.cpp | sed 's/.*line.*//' >> submit.cpp 
-  python3 ~/.config/dotfiles/kyopro/extract-above-main.py main.cpp >> submit.cpp
-  echo '#define INCLUDED_MAIN\n#include __FILE__\n\n#endif' >> submit.cpp
+  cat main.cpp | grep -v '#include' >> submit.cpp
+  sed -i '' -e '1d' submit.cpp
   rm -f log.txt tmp.cpp bundle.cpp
+  pbcopy < submit.cpp
 )
 
 # 提出
@@ -81,7 +79,7 @@ alias sole='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_e
 alias solf='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_f/")'
 alias solg='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_g/")'
 alias solh='cd $(pwd | sed "s/\(.*atcoder\.jp\/\)\([a-zA-Z0-9\-]*\).*/\1\2\/\2_h/")'
-alias g="/usr/bin/g++ -std=c++20 main.cpp -I ~/Kyopro/library -I ~/Kyopro/library/_include -fsanitize=address -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC"
+alias g="/usr/bin/g++ -std=c++20 main.cpp -I ~/Kyopro/library -I ~/Kyopro/library/_include -fsanitize=address -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_PRES1DENT_DEBUG"
 alias p="pbcopy < main.cpp"
 alias tt='latexmk -pdfdvi -pvc'
 alias a='./a.out'
